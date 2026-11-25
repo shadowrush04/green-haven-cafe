@@ -177,18 +177,6 @@
                             @endif
                         @endauth
                     </ul>
-
-                    <!-- Menu Autentikasi Kanan -->
-                    <ul class="navbar-nav ms-auto align-items-lg-center gap-2 mt-2 mt-lg-0">
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link nav-link-cafe" href="{{ route('login') }}">
-                                        <i class="bi bi-box-arrow-in-right me-1"></i> Login
-                                    </a>
-                                </li>
-                            @endif
-                        @else
                             <li class="nav-item me-2">
                                 <div class="d-flex align-items-center bg-white bg-opacity-10 px-3 py-1 rounded-pill text-white small">
                                     <i class="bi bi-person-circle me-2"></i>
