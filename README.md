@@ -1,58 +1,78 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Green Haven Cafe — Sistem Kasir & Manajemen Kedai
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Aplikasi web berbasis **Laravel** dan **Bootstrap 5** untuk mengelola operasional harian **Green Haven Cafe**, mencakup pencatatan pesanan pelanggan, manajemen daftar menu dan kategori, serta pengelolaan akun pegawai berbasis hak akses (Multi Role Authentication).
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Anggota Kelompok
+1. Moch. Albany Alfachrezi Syechan  10124056 IF2 
+2. Yusya Raditya NIM Rekan IF2 |
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Fitur Utama
+* **Autentikasi & Hak Akses (*Role-Based Access Control*):**
+  * **Admin:** Akses penuh ke Dashboard statistik, Manajemen Kategori, Manajemen Menu, Transaksi Pesanan, Kelola Akun Pegawai (tambah/hapus akun), dan Ganti Password.
+  * **Kasir:** Akses ke Dashboard, Pencatatan & Manajemen Status Pesanan, serta Ganti Password.
+  * Registrasi publik dinonaktifkan demi keamanan operasional; penambahan akun pegawai dilakukan melalui panel Admin.
+* **Dashboard Statistik:** Menampilkan ringkasan total kategori, total menu, jumlah pesanan yang sedang diproses, dan total pendapatan.
+* **Transaksi Pesanan Otomatis:** Menghitung `total_harga` secara otomatis berdasarkan harga menu dikalikan jumlah pesanan.
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Struktur Database (`db_green_haven_cafe`)
+Aplikasi menggunakan **4 tabel** yang saling berelasi (*Primary Key* & *Foreign Key*):
+1. **`users`**: Menyimpan data pengguna (`id`, `name`, `email`, `password`, `role` [`admin`, `kasir`]).
+2. **`kategoris`**: Menyimpan kategori hidangan (`id`, `nama_kategori`, `deskripsi`).
+3. **`menus`**: Menyimpan daftar menu (`id`, `kategori_id`, `kode_menu`, `nama_menu`, `harga`, `status`) — berelasi ke `kategoris`.
+4. **`pesanans`**: Menyimpan transaksi pelanggan (`id`, `user_id`, `menu_id`, `nama_pelanggan`, `nomor_meja`, `jumlah`, `total_harga`, `status_pesanan`) — berelasi ke `users` dan `menus`.
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+## Akun Login Default (Hasil Seeder)
+| Role | Email | Password |
+| :--- | :--- | :--- |
+| **Admin** | `adminHavenCafe@cafe.com` | `greenhavencafe123` |
+| **Kasir** | `kasircafeS1@cafe.com` | `password` |
 
-## Agentic Development
+---
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+## Kebutuhan Sistem & Cara Instalasi
+**Kebutuhan Sistem:** PHP >= 8.3, Composer, Node.js dan NPM, serta MySQL / MariaDB (Laragon).
 
-```bash
-composer require laravel/boost --dev
-
-php artisan boost:install
-```
-
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+1. **Clone repositori ini:**
+   ```bash
+   git clone [https://github.com/shadowrush04-afk/green-haven-cafe.git](https://github.com/shadowrush04-afk/green-haven-cafe.git)
+   cd green-haven-cafe
+   ```
+2. **Install dependensi PHP & Frontend:**
+   ```bash
+   composer install
+   npm install
+   ```
+3. **Konfigurasi file `.env`:**
+   ```bash
+   copy .env.example .env
+   php artisan key:generate
+   ```
+   Sesuaikan pengaturan database MySQL di dalam file `.env`:
+   ```env
+   DB_CONNECTION=mysql
+   DB_HOST=127.0.0.1
+   DB_PORT=3306
+   DB_DATABASE=db_green_haven_cafe
+   DB_USERNAME=root
+   DB_PASSWORD=
+   ```
+4. **Siapkan Database:**
+   * Buat database kosong bernama `db_green_haven_cafe` di Laragon / phpMyAdmin.
+   * Impor file `db_green_haven_cafe.sql` yang tersedia di repositori ini, atau jalankan perintah:
+     ```bash
+     php artisan migrate:fresh --seed
+     ```
+5. **Build aset tampilan & jalankan aplikasi:**
+   ```bash
+   npm run build
+   php artisan serve
+   ```
+   *(Jika menggunakan Laragon di folder `www/cafe`, sesuaikan `APP_URL=http://localhost/cafe/public` atau `APP_URL=http://cafe.test` pada file `.env`, lalu akses langsung melalui alamat tersebut di browser).*
