@@ -4,9 +4,12 @@ Aplikasi web berbasis **Laravel** dan **Bootstrap 5** untuk mengelola operasiona
 
 ---
 
-## Anggota Kelompok
-1. Moch. Albany Alfachrezi Syechan 10124056 IF2 
-2. Yusya Raditya 10124059 IF2 
+## Anggota Kelompok dan Kontribusi nya
+1. Moch. Albany Alfachrezi Syechan 10124056 IF2
+   • Perancangan struktur database (4 tabel relasional), *migration*, dan *seeder* akun default.<br>• Implementasi sistem autentikasi & hak akses (*Multi-Role* Admin & Kasir), Kelola Akun Pegawai, serta Ganti Password.<br>• Pengembangan modul CRUD **Manajemen Kategori** dan **Manajemen Menu**.<br>• Pengaturan repositori GitHub dan integrasi kerangka *layout* utama aplikasi.
+3. Yusya Raditya 10124059 IF2
+   • Pengembangan modul **Transaksi Pesanan** (pencatatan pesanan, kalkulasi otomatis `total_harga`, dan manajemen status pesanan).<br>• Pengembangan logika **Dashboard Statistik** (agregasi total kategori, menu, pesanan aktif, dan pendapatan).<br>• Penyesuaian responsivitas halaman transaksi & dashboard, pengujian alur fitur (*testing* peran Admin & Kasir), serta ekspor database `.sql` dan dokumentasi.
+   
 
 ---
 
