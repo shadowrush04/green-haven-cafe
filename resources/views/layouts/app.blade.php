@@ -84,6 +84,28 @@
             border-color: #efede8;
         }
 
+        .table.table-silver {
+            background-color: #f8f9fa !important;
+            color: #212529 !important;
+            border-color: #dee2e6 !important;
+        }
+
+        .table.table-silver thead th {
+            background-color: #dee2e6 !important;
+            color: #212529 !important;
+            border-color: #ced4da !important;
+        }
+
+        .table.table-silver tbody td {
+            background-color: #f8f9fa !important;
+            color: #212529 !important;
+            border-color: #e9ecef !important;
+        }
+
+        .table.table-silver.table-hover tbody tr:hover td {
+            background-color: #e9ecef !important;
+        }
+
         .btn-primary {
             background-color: var(--cafe-primary) !important;
             border-color: var(--cafe-primary) !important;
@@ -177,7 +199,11 @@
                             @endif
                         @endauth
                     </ul>
-                            <li class="nav-item me-2">
+
+                    <!-- Menu Navigasi Kanan -->
+                    @auth
+                        <ul class="navbar-nav ms-auto align-items-lg-center gap-2">
+                            <li class="nav-item">
                                 <div class="d-flex align-items-center bg-white bg-opacity-10 px-3 py-1 rounded-pill text-white small">
                                     <i class="bi bi-person-circle me-2"></i>
                                     <span class="fw-semibold">{{ Auth::user()->name }}</span>
@@ -199,8 +225,8 @@
                                     </button>
                                 </form>
                             </li>
-                        @endguest
-                    </ul>
+                        </ul>
+                    @endauth
                 </div>
             </div>
         </nav>
