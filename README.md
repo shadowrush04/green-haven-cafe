@@ -37,7 +37,7 @@ Aplikasi menggunakan **4 tabel** yang saling berelasi (*Primary Key* & *Foreign 
 ## Akun Login Default (Hasil Seeder)
 | Role | Email | Password |
 | :--- | :--- | :--- |
-| **Admin** | `adminHavenCafe@cafe.com` | `greenhavencafe123` |
+| **Admin** | `adminHavenCafe@cafe.com` | `password` |
 | **Kasir** | `kasircafeS1@cafe.com` | `password` |
 
 ---
