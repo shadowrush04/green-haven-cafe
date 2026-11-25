@@ -47,8 +47,8 @@ Aplikasi menggunakan **4 tabel** yang saling berelasi (*Primary Key* & *Foreign 
 
 1. **Clone repositori ini:**
    ```bash
-   git clone [https://github.com/shadowrush04-afk/green-haven-cafe.git](https://github.com/shadowrush04-afk/green-haven-cafe.git)
-   cd green-haven-cafe
+  git clone https://github.com/shadowrush04/green-haven-cafe.git
+  cd green-haven-cafe
    ```
 2. **Install dependensi PHP & Frontend:**
    ```bash
