@@ -11,12 +11,14 @@ class MenuController extends Controller
     public function index()
     {
         $menus = Menu::with('kategori')->latest()->get();
-        return view('menus.index', compact('menus'));
+        $kategoris = Kategori::orderBy('nama_kategori')->get();
+
+        return view('menus.index', compact('menus', 'kategoris'));
     }
 
     public function create()
     {
-        $kategoris = Kategori::all();
+        $kategoris = Kategori::orderBy('nama_kategori')->get();
         return view('menus.create', compact('kategoris'));
     }
 
@@ -38,7 +40,7 @@ class MenuController extends Controller
 
     public function edit(Menu $menu)
     {
-        $kategoris = Kategori::all();
+        $kategoris = Kategori::orderBy('nama_kategori')->get();
         return view('menus.edit', compact('menu', 'kategoris'));
     }
 
