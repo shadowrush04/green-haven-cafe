@@ -6,7 +6,7 @@ Aplikasi web berbasis **Laravel** dan **Bootstrap 5** untuk mengelola operasiona
 
 ## Anggota Kelompok
 1. Moch. Albany Alfachrezi Syechan 10124056 IF2 
-2. Yusya Raditya 10124059  IF2 |
+2. Yusya Raditya 10124059 IF2 
 
 ---
 
